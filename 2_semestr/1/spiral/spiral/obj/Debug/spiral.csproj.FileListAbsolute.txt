@@ -1,0 +1,6 @@
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\bin\Debug\spiral.exe.config
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\bin\Debug\spiral.exe
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\bin\Debug\spiral.pdb
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\obj\Debug\spiral.csprojResolveAssemblyReference.cache
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\obj\Debug\spiral.exe
+C:\Users\Дмитрий\Desktop\Домашка\2_simestr\spiral\spiral\obj\Debug\spiral.pdb
