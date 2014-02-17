@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace sorting
+namespace Sorting
 {
-    class main
+    class Program
     {
         // Sorting input array by Inserting Sort.
         static void InsertingSort(int[] array)
@@ -21,15 +17,19 @@ namespace sorting
                 }
             }
         }
+
         // Fills input array random numbers.
-        static void createRandomArray(int[] array)
+        static int[] createRandomArray(int lengthOfArray)
         {
             Random rand = new Random();
-            for (int i = 0; i < array.Length; i++)
+            int[] randomArray = new int[lengthOfArray];
+            for (int i = 0; i < lengthOfArray; i++)
             {
-                array[i] = rand.Next(0, 30);
+                randomArray[i] = rand.Next(0, 30);
             }
+            return randomArray;
         }
+
         // Writing input array.
         static void writeArray(int[] array)
         {
@@ -40,6 +40,7 @@ namespace sorting
             }
             Console.WriteLine();
         }
+
         // Sorting array.
         // Test is positive with "10".
         // Test is negative with "-1" or "1.2".
@@ -47,8 +48,7 @@ namespace sorting
         {
             Console.Write("Enter the length of array ");
             int lengthOfArray = Int16.Parse(Console.ReadLine());
-            int[] array = new int[lengthOfArray];
-            createRandomArray(array);
+            int[] array = createRandomArray(lengthOfArray);
             writeArray(array);
             Console.Write("After sorting...");
             InsertingSort(array);
@@ -57,3 +57,4 @@ namespace sorting
         }
     }
 }
+

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace fibonachi
+namespace Fibonacci
 {
-    class main
+    class Program
     {
         // Calculate fibonachi recursive method.
-        public static long FibonachiRecurs(long value)
+        public static long FibonacciRecursive(long value)
         {
             if (value == 0)
             {
@@ -19,10 +15,11 @@ namespace fibonachi
             {
                 return 1;
             }
-            return FibonachiRecurs(value - 1) + FibonachiRecurs(value - 2);
+            return FibonacciRecursive(value - 1) + FibonacciRecursive(value - 2);
         }
+
         // Calculate fibonachi iterative method.
-        public static long FibonachiEmpty(long value)
+        public static long FibonacciIterative(long value)
         {
             if (value == 0)
             {
@@ -43,6 +40,7 @@ namespace fibonachi
             }
             return secondNumber;
         }
+
         // Calculating fibonachi.
         // Test is positive with "10".
         // Test is begative with "1.2".
@@ -50,7 +48,7 @@ namespace fibonachi
         {
             System.Console.Write("Enter the number of the number:");
             long number = long.Parse(System.Console.ReadLine());
-            System.Console.WriteLine("Your number is {0}", FibonachiEmpty(number));
+            System.Console.WriteLine("Your number is {0}", FibonacciIterative(number));
         }
     }
 }

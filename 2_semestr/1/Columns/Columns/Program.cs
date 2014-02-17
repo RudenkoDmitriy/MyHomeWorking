@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace towns
+namespace Towns
 {
-    class main
+    class Program
     {
         // Swap for towns.
         static void SwapForTown(int[,] matrix, int firstTown, int secondTown, int stringsNumber)
         {
             for (int i = 0; i < stringsNumber; i++)
             {
-                int temp = matrix[i , firstTown];
+                int temp = matrix[i, firstTown];
                 matrix[i, firstTown] = matrix[i, secondTown];
                 matrix[i, secondTown] = temp;
             }
         }
+
         // Inserting sort by towns by first elements for matrix.
         static void InsertingSort(int[,] matrix, int stringsNumber, int townsNumber)
         {
@@ -29,18 +26,22 @@ namespace towns
                 }
             }
         }
+
         // Create random matrix.
-        static void RandomMatrix(int[,] matrix, int stringsNumber, int townsNumber)
+        static int[,] CreateRandomMatrix(int stringsNumber, int columnsNumber)
         {
+            int[,] matrix = new int[stringsNumber, columnsNumber];
             Random rand = new Random();
             for (int i = 0; i < stringsNumber; i++)
             {
-                for (int j = 0; j < townsNumber; j++)
+                for (int j = 0; j < columnsNumber; j++)
                 {
                     matrix[i, j] = rand.Next(0, 30);
                 }
             }
+            return matrix;
         }
+
         // Write matrix.
         static void WriteMatrix(int[,] matrix, int stringsNumber, int townsNumber)
         {
@@ -53,6 +54,7 @@ namespace towns
                 Console.WriteLine();
             }
         }
+
         // Sorting matrix's towns by first elements.
         // Test is positive with "3, 20".
         // Test is negative with "1.2".
@@ -67,8 +69,7 @@ namespace towns
                 Console.WriteLine("Error");
                 return;
             }
-            int[,] matrix = new int[stringsNumber, townsNumber];
-            RandomMatrix(matrix, stringsNumber, townsNumber);
+            int[,] matrix = CreateRandomMatrix(stringsNumber, townsNumber);
             Console.WriteLine("Is your matrix: ");
             WriteMatrix(matrix, stringsNumber, townsNumber);
             Console.WriteLine();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "factorial", "factorial\factorial.csproj", "{7519A465-828A-4591-A530-18D5693F7024}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factorial", "Factorial\Factorial.csproj", "{8176FB14-0E0D-48E0-9ABF-E62F32EEA002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7519A465-828A-4591-A530-18D5693F7024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7519A465-828A-4591-A530-18D5693F7024}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7519A465-828A-4591-A530-18D5693F7024}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7519A465-828A-4591-A530-18D5693F7024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8176FB14-0E0D-48E0-9ABF-E62F32EEA002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8176FB14-0E0D-48E0-9ABF-E62F32EEA002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8176FB14-0E0D-48E0-9ABF-E62F32EEA002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8176FB14-0E0D-48E0-9ABF-E62F32EEA002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

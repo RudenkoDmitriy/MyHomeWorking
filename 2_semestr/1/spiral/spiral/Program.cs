@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace spiral
+namespace Spiral
 {
-    class main
+    class Program
     {
         // Write matrix in in the form of a spiral. 
         static void Spiral(int[,] matrix, int size)
@@ -16,7 +12,7 @@ namespace spiral
             int numberOfSteps = 1;
             int directions = 0;
             int commitedSteps = 0;
-            Console.Write("{0} ", matrix[i,j]);
+            Console.Write("{0} ", matrix[i, j]);
             for (int count = 0; count < size * size - 1; count++)
             {
                 switch (directions % 4)
@@ -63,10 +59,12 @@ namespace spiral
             }
             Console.WriteLine();
         }
+
         // Create random matrix.
-        static void RandomMatrix(int[,] matrix, int size)
+        static int[,] CreateRandomMatrix(int size)
         {
             Random rand = new Random();
+            int[,] matrix = new int[size, size];
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -74,9 +72,11 @@ namespace spiral
                     matrix[i, j] = rand.Next(0, 30);
                 }
             }
+            return matrix;
         }
+
         // Write matrix.
-        static void WriteMatrix(int [,] matrix, int size)
+        static void WriteMatrix(int[,] matrix, int size)
         {
             for (int i = 0; i < size; i++)
             {
@@ -87,6 +87,7 @@ namespace spiral
                 Console.WriteLine();
             }
         }
+
         // Write matrix in the form of a spiral.
         // Test is positive with "3".
         // Test is negative with "1.2".
@@ -99,8 +100,7 @@ namespace spiral
                 Console.WriteLine("Error");
                 return;
             }
-            int[,] matrix = new int[size, size];
-            RandomMatrix(matrix, size);
+            int[,] matrix = CreateRandomMatrix(size);
             WriteMatrix(matrix, size);
             Console.WriteLine();
             Spiral(matrix, size);
