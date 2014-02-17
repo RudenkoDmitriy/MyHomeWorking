@@ -76,7 +76,7 @@ namespace spiral
             }
         }
         // Write matrix.
-        static void WrtiteMatrix(int [,] matrix, int size)
+        static void WriteMatrix(int [,] matrix, int size)
         {
             for (int i = 0; i < size; i++)
             {
@@ -94,14 +94,14 @@ namespace spiral
         {
             Console.Write("Enter the size of matrix: ");
             int size = Int32.Parse(Console.ReadLine());
-            if (size % 2 == 0)
+            if (size % 2 == 0 || size <= 0)
             {
                 Console.WriteLine("Error");
                 return;
             }
             int[,] matrix = new int[size, size];
             RandomMatrix(matrix, size);
-            WrtiteMatrix(matrix, size);
+            WriteMatrix(matrix, size);
             Console.WriteLine();
             Spiral(matrix, size);
         }

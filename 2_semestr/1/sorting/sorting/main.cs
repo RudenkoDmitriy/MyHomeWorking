@@ -9,7 +9,7 @@ namespace sorting
     class main
     {
         // Sorting input array by Inserting Sort.
-        static void insertingSort(int[] array)
+        static void InsertingSort(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -51,7 +51,7 @@ namespace sorting
             createRandomArray(array);
             writeArray(array);
             Console.Write("After sorting...");
-            insertingSort(array);
+            InsertingSort(array);
             Console.WriteLine();
             writeArray(array);
         }
