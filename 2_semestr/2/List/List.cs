@@ -1,66 +1,49 @@
 ﻿using System;
 
-namespace List
+namespace Program
 {
-    class Program
-    {
-        // Exmple program.
-        static void Main(string[] args)
-        {
-            List<int> list = new List<int>();
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-            Console.WriteLine(list.Size());
-            list.Write();
-            list.Insert(3, 4);
-            Console.WriteLine(list.FindIndex(4));
-            list.RemoveAt(1);
-            Console.WriteLine(list.ReturnByIndex(0));
-            Console.WriteLine(list.Size());
-            list.Write();
-
-        }
-    }
-
     public class List<T>
     {
         private ElementOfList head;
         private int size;
 
-        // List's container.
+        /// <summary>
+        /// List's container.
+        /// </summary>
         private class ElementOfList
         {
-            public T value;
-            public ElementOfList next;
-            public ElementOfList back;
+            public T Value { get; set; }
+            public ElementOfList Next { get; set; }
+            public ElementOfList Back { get; set; }
+            public ElementOfList(T value)
+            {
+                Value = value;
+            }
         }
 
-        public List()
-        {
-            head = null;
-            size = 0;
-        }
-
-        // Add element to top.
+        /// <summary>
+        /// Add element to top.
+        /// </summary>
+        /// <param name="value"></param>
         public void Add(T value)
         {
             var temp = head;
-            var newElement = new ElementOfList();
-            newElement.value = value;
-            newElement.back = null;
-            newElement.next = temp;
+            var newElement = new ElementOfList(value);
+            newElement.Back = null;
+            newElement.Next = temp;
             head = newElement;
             if (size != 0)
             {
-                temp.back = head;
+                temp.Back = head;
             }
             size++;
         }
 
-        // Add element to last.
-        public void AddRange(T value)
+        /// <summary>
+        /// Add element to last.
+        /// </summary>
+        /// <param name="value"></param>
+        public void AddLast(T value)
         {
             if (size == 0)
             {
@@ -70,17 +53,20 @@ namespace List
             var temp = head;
             for (int i = 1; i != size; i++)
             {
-                temp = temp.next;
+                temp = temp.Next;
             }
-            var newElement = new ElementOfList();
-            newElement.value = value;
-            newElement.back = temp;
-            newElement.next = null;
-            temp.next = newElement;
+            var newElement = new ElementOfList(value);
+            newElement.Back = temp;
+            newElement.Next = null;
+            temp.Next = newElement;
             size++;
         }
 
-        // Insert element to input position.
+        /// <summary>
+        /// Insert element to input position.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
         public void Insert(int position, T value)
         {
             if (position < 0 || position >= size)
@@ -94,25 +80,27 @@ namespace List
             }
             if (position == size - 1)
             {
-                AddRange(value);
+                AddLast(value);
                 return;
             }
             var temp = head;
             while (position > 0)
             {
-                temp = temp.next;
+                temp = temp.Next;
                 position--;
             }
-            var newElement = new ElementOfList();
-            newElement.value = value;
-            newElement.next = temp;
-            newElement.back = temp.back;
-            temp.back.next = newElement;
-            temp.back = newElement;
+            var newElement = new ElementOfList(value);
+            newElement.Next = temp;
+            newElement.Back = temp.Back;
+            temp.Back.Next = newElement;
+            temp.Back = newElement;
             size++;
         }
 
-        // Remove element from input position.
+        /// <summary>
+        /// Remove element from input position.
+        /// </summary>
+        /// <param name="position"></param>
         public void RemoveAt(int position)
         {
             if (position < 0 || position >= size)
@@ -122,39 +110,47 @@ namespace List
             var temp = head;
             for (int i = 0; i < position; i++)
             {
-                temp = head.next;
+                temp = head.Next;
             }
             if (temp == head)
             {
-                head = head.next;
+                head = head.Next;
                 size--;
                 return;
             }
-            if (temp.next == null)
+            if (temp.Next == null)
             {
-                temp.back.next = null;
+                temp.Back.Next = null;
                 size--;
             }
-            temp.back.next = temp.next;
-            temp.next.back = temp.back;
+            temp.Back.Next = temp.Next;
+            temp.Next.Back = temp.Back;
             size--;
         }
 
-        // Check availability of element.
+        /// <summary>
+        /// Check availability of element.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool Contain(T value)
         {
-            for (var temp = head; temp != null; temp = temp.next)
+            for (var temp = head; temp != null; temp = temp.Next)
             {
-                if (Equals(temp.value, value))
+                if (Equals(temp.Value, value))
                 {
                     return true;
                 }
-                temp = temp.next;
+                temp = temp.Next;
             }
             return false;
         }
 
-        // Return element by index.
+        /// <summary>
+        /// Return element by index.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public T ReturnByIndex(int position)
         {
             if (position < 0 || position >= size)
@@ -164,18 +160,22 @@ namespace List
             var temp = head;
             for (int i = 0; i < position; i++)
             {
-                temp = temp.next;
+                temp = temp.Next;
             }
-            return temp.value;
+            return temp.Value;
         }
 
-        // Find index element by input value.
+        /// <summary>
+        /// Find index element by input value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public int FindIndex(T value)
         {
             int count = 0;
-            for (var temp = head; temp != null; temp = temp.next)
+            for (var temp = head; temp != null; temp = temp.Next)
             {
-                if (Equals(temp.value, value))
+                if (Equals(temp.Value, value))
                 {
                     return count;
                 }
@@ -184,27 +184,31 @@ namespace List
             throw new Exception();
         }
 
-        // Clear list.
+        /// <summary>
+        /// Clear list.
+        /// </summary>
         public void Clear()
         {
-            while (size != 0)
-            {
-                RemoveAt(0);
-            }
+            head = null;
         }
 
-        // Return size of list.
+        /// <summary>
+        /// Return size of list.
+        /// </summary>
+        /// <returns></returns>
         public int Size()
         {
             return size;
         }
 
-        // Write stack(an optional feature).
+        /// <summary>
+        /// Write stack(an optional feature).
+        /// </summary>
         public void Write()
         {
-            for (var temp = head; temp != null; temp = temp.next)
+            for (var temp = head; temp != null; temp = temp.Next)
             {
-                Console.Write("{0} ", temp.value);
+                Console.Write("{0} ", temp.Value);
             }
             Console.WriteLine();
         }

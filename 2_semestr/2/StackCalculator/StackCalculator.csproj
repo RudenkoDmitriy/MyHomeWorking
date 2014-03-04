@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackByPointer.cs" />
+    <Compile Include="StackByArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,17 +1,27 @@
 ﻿using System;
 
-namespace Stack
+namespace StackCalculator
 {
     public class Stack<T>
     {
         private ElementOfStack head;
-        // Size of stack.
+
+        /// <summary>
+        /// Size of stack.
+        /// </summary>
         private int size;
-        // Stack's container.
+
+        /// <summary>
+        /// Stack's container.
+        /// </summary>
         private class ElementOfStack
         {
-            public T value;
-            public ElementOfStack next;
+            public T Value { get; set; }
+            public ElementOfStack Next { get; set; }
+            public ElementOfStack(Stack<T> stack)
+            {
+                this.Next = stack.head;
+            }
         }
 
         public Stack()
@@ -20,22 +30,26 @@ namespace Stack
             size = 0;
         }
 
-        // Push element to top.
+        /// <summary>
+        /// Push element to top.
+        /// </summary>
+        /// <param name="value"></param>
         public void Push(T value)
         {
-            ElementOfStack newElement = new ElementOfStack();
-            newElement.value = value;
-            newElement.next = head;
+            ElementOfStack newElement = new ElementOfStack(this);
+            newElement.Value = value;
             head = newElement;
             size++;
         }
 
-        // Delete element from top.
+        /// <summary>
+        /// Delete element from top.
+        /// </summary>
         public void Pop()
         {
             if (head != null)
             {
-                this.head = this.head.next;
+                this.head = this.head.Next;
                 size--;
             }
             else
@@ -44,12 +58,15 @@ namespace Stack
             }
         }
 
-        // Write element from top.
+        /// <summary>
+        /// Write element from top.
+        /// </summary>
+        /// <returns></returns>
         public T Top()
         {
             if (head != null)
             {
-                return head.value;
+                return head.Value;
             }
             else
             {
@@ -57,38 +74,23 @@ namespace Stack
             }
         }
 
-        // Clear stack.
+        /// <summary>
+        /// Clear stack.
+        /// </summary>
         public void Clear()
         {
-            while (size != 0)
-            {
-                Pop();
-            }
-            size = 0;
+            head = null;
         }
 
-        // Write stack(an optional feature).
+        /// <summary>
+        ///  Write stack(an optional feature).
+        /// </summary>
         public void Write()
         {
-            for (ElementOfStack temp = head; temp != null; temp = temp.next)
+            for (ElementOfStack temp = head; temp != null; temp = temp.Next)
             {
-                Console.Write("{0} ", temp.value);
+                Console.Write("{0} ", temp.Value);
             }
-        }
-    }
-
-    class Program
-    {
-        // Example program.
-        static void Main(string[] args)
-        {
-            Stack<int> stack = new Stack<int>();
-            stack.Push(3);
-            stack.Push(2);
-            stack.Write();
-            stack.Clear();
-            stack.Push(2);
-            stack.Write();
         }
     }
 }
