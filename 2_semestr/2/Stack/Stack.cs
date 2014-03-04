@@ -80,6 +80,7 @@ namespace StackCalculator
         public void Clear()
         {
             head = null;
+            size = 0;
         }
 
         /// <summary>

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash", "Hash.csproj", "{8EE33992-48FE-484B-A419-AC1C0C7CEF51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash", "Hash\Hash.csproj", "{8EE33992-48FE-484B-A419-AC1C0C7CEF51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTest", "..\HashTest\HashTest.csproj", "{10470036-84F2-450B-AEBD-565F91BA0E52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTest", "HashTest\HashTest.csproj", "{10470036-84F2-450B-AEBD-565F91BA0E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

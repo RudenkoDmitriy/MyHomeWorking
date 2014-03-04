@@ -1,6 +1,0 @@
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\bin\Debug\Hash.exe.config
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\obj\Debug\Hash.csprojResolveAssemblyReference.cache
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\bin\Debug\Hash.exe
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\bin\Debug\Hash.pdb
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\obj\Debug\Hash.exe
-C:\Users\Дмитрий\Desktop\HomeWork\2_semestr\Hash\obj\Debug\Hash.pdb

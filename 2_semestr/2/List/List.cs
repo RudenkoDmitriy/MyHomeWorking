@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace Program
+﻿namespace List
 {
+    using System;
     public class List<T>
     {
         private ElementOfList head;
@@ -78,7 +77,7 @@ namespace Program
                 Add(value);
                 return;
             }
-            if (position == size - 1)
+            if (position == size)
             {
                 AddLast(value);
                 return;
@@ -122,6 +121,7 @@ namespace Program
             {
                 temp.Back.Next = null;
                 size--;
+                return;
             }
             temp.Back.Next = temp.Next;
             temp.Next.Back = temp.Back;
@@ -190,6 +190,7 @@ namespace Program
         public void Clear()
         {
             head = null;
+            size = 0;
         }
 
         /// <summary>
@@ -202,15 +203,27 @@ namespace Program
         }
 
         /// <summary>
-        /// Write stack(an optional feature).
+        /// Write list(an optional feature).
         /// </summary>
-        public void Write()
+        /// <summary>
+        public string Write()
         {
-            for (var temp = head; temp != null; temp = temp.Next)
+            if (this.head == null)
             {
-                Console.Write("{0} ", temp.Value);
+                throw new Exception();
             }
-            Console.WriteLine();
+            else
+            {
+                var temp = this.head;
+                string stringOfList = Convert.ToString(temp.Value);
+                temp = temp.Next;
+                while (temp != null)
+                {
+                    stringOfList += ", " + Convert.ToString(temp.Value);
+                    temp = temp.Next;
+                }
+                return stringOfList;
+            }
         }
     }
 }
