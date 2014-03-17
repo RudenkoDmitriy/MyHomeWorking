@@ -15,10 +15,10 @@ namespace UniqueListTest
 
         [TestMethod]
         [ExpectedException(typeof(DeleteNotContainElementException))]
-        public void RemoveTest()
+        public void RemoveAtTest()
         {
             list.Add(2);
-            list.Remove(3);
+            list.RemoveAt(3);
         }
 
         [TestMethod]
@@ -27,6 +27,22 @@ namespace UniqueListTest
         {
             list.Add(2);
             list.Add(2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DoubleAddingException))]
+        public void InsertTest()
+        {
+            list.Insert(0, 2);
+            list.Insert(1, 2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DoubleAddingException))]
+        public void AddLastTest()
+        {
+            list.AddLast(2);
+            list.AddLast(2);
         }
 
         UniqueList<int> list;

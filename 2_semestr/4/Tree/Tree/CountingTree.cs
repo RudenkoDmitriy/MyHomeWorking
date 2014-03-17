@@ -9,14 +9,13 @@ namespace Tree
     public class CountingTree
     {
         private int position;
-        private string expression;
+
         private Node arithmTree;
 
-        public CountingTree(string express)
+        public CountingTree(string expression)
         {
-            expression = express;
             position = -1;
-            arithmTree = BuildTree();
+            arithmTree = BuildTree(expression);
         }
 
         /// <summary>
@@ -24,36 +23,37 @@ namespace Tree
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        private Node CreateNode(string token)
+        private Operator CreateOperatorNode(string token)
         {
-            if (token[0] >= '0' && token[0] <= '9')
-            {
-                return new Operand(token);
-            }
             if (token[0] == '-')
             {
-                return new Substraction(token);
+                return new Substraction();
             }
             if (token[0] == '+')
             {
-                return new Addition(token);
+                return new Addition();
             }
             if (token[0] == '/')
             {
-                return new Division(token);
+                return new Division();
             }
             if (token[0] == '*')
             {
-                return new Multiplication(token);
+                return new Multiplication();
             }
             throw new OtherSymbolException();
+        }
+
+        private Operand CreateOperandNode(string token)
+        {
+            return new Operand(token);
         }
 
         /// <summary>
         /// Create arithmetical tree.
         /// </summary>
         /// <returns></returns>
-        public Node BuildTree()
+        private Node BuildTree(string expression)
         {
             while (expression.Length - 1 > position)
             {
@@ -70,14 +70,15 @@ namespace Tree
                     {
                         position++;
                     }
-                    if (expression[position] != '*' && expression[position] != '/' && expression[position] != '-' && expression[position] != '+')
+                    token = Convert.ToString(expression[position]);
+                    if (token[0] != '*' && token[0] != '/' && token[0] != '-' && token[0] != '+')
                     {
                         throw new MissedTokenException();
                     }
-                    Node newNode = CreateNode(Convert.ToString(expression[position]));
-                    newNode.Left = BuildTree();
-                    newNode.Right = BuildTree();
-                    return newNode;
+                    var newNode = CreateOperatorNode(token);
+                    newNode.Left = BuildTree(expression);
+                    newNode.Right = BuildTree(expression);
+                    return newNode; 
                 }
                 if (token[0] >= '0' && token[0] <= '9')
                 {
@@ -87,7 +88,7 @@ namespace Tree
                         token += expression[position];
                         position++;
                     }
-                    Node newNode = CreateNode(token);
+                    var newNode = CreateOperandNode(token);
                     return newNode;
                 }
                 throw new OtherSymbolException();

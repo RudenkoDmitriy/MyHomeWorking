@@ -7,11 +7,6 @@ namespace Tree
     /// </summary>
     public class Substraction : Operator
     {
-        public Substraction(string token)
-        {
-            this.Value = token;
-        }
-
         public override double Counting()
         {
             return Left.Counting() - Right.Counting();

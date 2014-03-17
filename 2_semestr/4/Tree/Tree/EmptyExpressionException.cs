@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tree
 {
+    /// <summary>
+    /// Exception of empty expression.
+    /// </summary>
     public class EmptyExpressionException : Exception
     {
     }

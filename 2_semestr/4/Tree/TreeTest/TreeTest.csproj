@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tree.csproj">
+    <ProjectReference Include="..\Tree\Tree.csproj">
       <Project>{d7be2d2c-0954-4ca7-ab07-b2095962fa94}</Project>
       <Name>Tree</Name>
     </ProjectReference>

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace UniqueList
 {
+    /// <summary>
+    /// Exception of double adding.
+    /// </summary>
     public class DoubleAddingException : Exception
     {
     }

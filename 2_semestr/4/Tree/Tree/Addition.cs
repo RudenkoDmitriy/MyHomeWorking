@@ -8,11 +8,6 @@ namespace Tree
 {
     class Addition : Operator
     {
-        public Addition(string token)
-        {
-            this.Value = token;
-        }
-
         public override double Counting()
         {
             return Left.Counting() + Right.Counting();

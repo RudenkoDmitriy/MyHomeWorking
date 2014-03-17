@@ -7,6 +7,10 @@ namespace Tree
     /// </summary>
     public abstract class Operator : Node
     {
+        public Node Left { get; set; }
+
+        public Node Right { get; set; }
+
         public override string Print()
         {
             return "(" + PrintToken() + " " + this.Left.Print() + " " + this.Right.Print() + ")";

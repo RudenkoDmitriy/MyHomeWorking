@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using List;
 
 namespace UniqueList
 {
@@ -15,7 +15,7 @@ namespace UniqueList
         /// <param name="value"></param>
         public void Add(T value)
         {
-            if (this.Contains(value))
+            if (this.Contain(value))
             {
                 throw new DoubleAddingException();
             }
@@ -26,18 +26,50 @@ namespace UniqueList
         }
 
         /// <summary>
+        /// Reversed method "AddLast".
+        /// </summary>
+        /// <param name="value"></param>
+        public void AddLast(T value)
+        {
+            if (this.Contain(value))
+            {
+                throw new DoubleAddingException();
+            }
+            else
+            {
+                base.AddLast(value);
+            }
+        }
+
+        /// <summary>
+        /// Reversed method "Insert".
+        /// </summary>
+        /// <param name="value"></param>
+        public void Insert(int position, T value)
+        {
+            if (this.Contain(value))
+            {
+                throw new DoubleAddingException();
+            }
+            else
+            {
+                base.Insert(position, value);
+            }
+        }
+
+        /// <summary>
         /// Reversed method "Remove".
         /// </summary>
         /// <param name="value"></param>
-        public void Remove(T value)
+        public void RemoveAt(T value)
         {
-            if (!this.Contains(value))
+            if (!this.Contain(value))
             {
                 throw new DeleteNotContainElementException();
             }
             else
             {
-                base.Remove(value);
+                base.RemoveAt(base.FindIndex(value));
             }
         }
     }

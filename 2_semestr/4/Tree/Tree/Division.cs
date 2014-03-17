@@ -7,11 +7,6 @@ namespace Tree
     /// </summary>
     public class Division : Operator
     {
-        public Division(string token)
-        {
-            this.Value = token;
-        }
-
         public override double Counting()
         {
             if (Right.Counting() == 0)

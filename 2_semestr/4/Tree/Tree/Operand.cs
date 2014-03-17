@@ -7,6 +7,8 @@ namespace Tree
     /// </summary>
     public class Operand : Node
     {
+        public string Value { get; set; }
+
         public Operand(string token)
         {
             this.Value = token;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tree
 {
+    /// <summary>
+    /// Exception of missed token. Suddenly!!!!!!
+    /// </summary>
     public class MissedTokenException : Exception
     {
     }

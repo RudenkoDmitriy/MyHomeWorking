@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree", "Tree\Tree.csproj", "{D7BE2D2C-0954-4CA7-AB07-B2095962FA94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeTest", "Tree\TreeTest\TreeTest.csproj", "{B9033AE0-72C5-4F53-A48A-EB7E0FAE9316}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeTest", "TreeTest\TreeTest.csproj", "{B9033AE0-72C5-4F53-A48A-EB7E0FAE9316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

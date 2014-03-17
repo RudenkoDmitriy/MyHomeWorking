@@ -11,10 +11,6 @@ namespace Tree
     /// </summary>
     public class Multiplication : Operator
     {
-        public Multiplication(string token)
-        {
-            this.Value = token;
-        }
 
         public override double Counting()
         {

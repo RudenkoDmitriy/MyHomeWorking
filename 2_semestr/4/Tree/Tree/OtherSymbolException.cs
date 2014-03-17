@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tree
 {
+    /// <summary>
+    /// Exception of other symbol.
+    /// </summary>
     public class OtherSymbolException : Exception
     {
     }
