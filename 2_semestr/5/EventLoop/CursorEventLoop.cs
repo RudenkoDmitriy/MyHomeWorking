@@ -5,7 +5,7 @@ namespace EventLoop
     /// <summary>
     /// Main events handler class.
     /// </summary>
-    public class EventLoop
+    public class CursorEventLoop
     {
         public event EventHandler<EventArgs> LeftHandler = (sender, args) => { };
         public event EventHandler<EventArgs> RightHandler = (sender, args) => { };

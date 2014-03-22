@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace EventLoop
 {
     class Program
@@ -10,8 +11,8 @@ namespace EventLoop
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            var eventLoop = new EventLoop();
-            var game = new Game();
+            var eventLoop = new CursorEventLoop();
+            var game = new CursorGame();
 
             eventLoop.LeftHandler += game.OnLeft;
             eventLoop.RightHandler += game.OnRight;

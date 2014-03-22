@@ -5,7 +5,7 @@ namespace EventLoop
     /// <summary>
     /// Game methods class.
     /// </summary>
-    public class Game
+    public class CursorGame
     {
         /// <summary>
         /// Method on left key.
