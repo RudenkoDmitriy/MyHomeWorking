@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator.csproj", "{76330C1C-F9C1-4992-9C31-C4777C4571A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTest", "..\CalculatorTest\CalculatorTest.csproj", "{4A862B8E-DD81-41D0-9DD9-FBCFF634806C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{993EA909-7F0E-459B-8954-DE4E8AF41380}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76330C1C-F9C1-4992-9C31-C4777C4571A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76330C1C-F9C1-4992-9C31-C4777C4571A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76330C1C-F9C1-4992-9C31-C4777C4571A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76330C1C-F9C1-4992-9C31-C4777C4571A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A862B8E-DD81-41D0-9DD9-FBCFF634806C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A862B8E-DD81-41D0-9DD9-FBCFF634806C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A862B8E-DD81-41D0-9DD9-FBCFF634806C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A862B8E-DD81-41D0-9DD9-FBCFF634806C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993EA909-7F0E-459B-8954-DE4E8AF41380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993EA909-7F0E-459B-8954-DE4E8AF41380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993EA909-7F0E-459B-8954-DE4E8AF41380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993EA909-7F0E-459B-8954-DE4E8AF41380}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
