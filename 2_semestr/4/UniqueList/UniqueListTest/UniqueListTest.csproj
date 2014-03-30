@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UniqueList.csproj">
+    <ProjectReference Include="..\UniqueList\UniqueList.csproj">
       <Project>{ecb7db05-ef81-479c-9fa2-3d5db968407c}</Project>
       <Name>UniqueList</Name>
     </ProjectReference>
