@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiplicity", "Multiplicity\Multiplicity.csproj", "{B860D1EB-D223-4D90-9D68-C0343E294305}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set", "Set\Set.csproj", "{64170814-60AF-4266-AD53-676C60F8E659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplicityTest", "MultiplicityTest\MultiplicityTest.csproj", "{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetTest", "SetTest\SetTest.csproj", "{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B860D1EB-D223-4D90-9D68-C0343E294305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B860D1EB-D223-4D90-9D68-C0343E294305}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B860D1EB-D223-4D90-9D68-C0343E294305}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B860D1EB-D223-4D90-9D68-C0343E294305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64170814-60AF-4266-AD53-676C60F8E659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64170814-60AF-4266-AD53-676C60F8E659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64170814-60AF-4266-AD53-676C60F8E659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64170814-60AF-4266-AD53-676C60F8E659}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU

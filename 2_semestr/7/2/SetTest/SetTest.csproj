@@ -6,7 +6,7 @@
     <ProjectGuid>{3118EB42-55FA-4088-A0A4-4666DB6FF9E4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MultiplicityTest</RootNamespace>
+    <RootNamespace>SetTest</RootNamespace>
     <AssemblyName>MultiplicityTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,13 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MultiplicityTest.cs" />
+    <Compile Include="SetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Multiplicity\Multiplicity.csproj">
-      <Project>{b860d1eb-d223-4d90-9d68-c0343e294305}</Project>
-      <Name>Multiplicity</Name>
+    <ProjectReference Include="..\Set\Set.csproj">
+      <Project>{64170814-60af-4266-ad53-676c60f8e659}</Project>
+      <Name>Set</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

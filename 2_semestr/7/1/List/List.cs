@@ -6,8 +6,8 @@ namespace List
 {
     public class MyList<T> : IEnumerable<T>
     {
-        private ElementOfList head;
-        private int size;
+        private ElementOfList Head {  get; set; }
+        public int Size { get; private set; }
 
         /// <summary>
         /// List's container.
@@ -29,16 +29,16 @@ namespace List
         /// <param name="value"></param>
         public void Add(T value)
         {
-            var temp = head;
+            var temp = Head;
             var newElement = new ElementOfList(value);
             newElement.Back = null;
             newElement.Next = temp;
-            head = newElement;
-            if (size != 0)
+            Head = newElement;
+            if (Size != 0)
             {
-                temp.Back = head;
+                temp.Back = Head;
             }
-            size++;
+            Size++;
         }
 
         /// <summary>
@@ -47,13 +47,13 @@ namespace List
         /// <param name="value"></param>
         public void AddLast(T value)
         {
-            if (size == 0)
+            if (Size == 0)
             {
                 Add(value);
                 return;
             }
-            var temp = head;
-            for (int i = 1; i != size; i++)
+            var temp = Head;
+            for (int i = 1; i != Size; i++)
             {
                 temp = temp.Next;
             }
@@ -61,74 +61,7 @@ namespace List
             newElement.Back = temp;
             newElement.Next = null;
             temp.Next = newElement;
-            size++;
-        }
-
-        /// <summary>
-        /// Insert element to input position.
-        /// </summary>
-        /// <param name="position"></param>
-        /// <param name="value"></param>
-        public void Insert(int position, T value)
-        {
-            if (position < 0 || position >= size)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            if (position == 0)
-            {
-                Add(value);
-                return;
-            }
-            if (position == size)
-            {
-                AddLast(value);
-                return;
-            }
-            var temp = head;
-            while (position > 0)
-            {
-                temp = temp.Next;
-                position--;
-            }
-            var newElement = new ElementOfList(value);
-            newElement.Next = temp;
-            newElement.Back = temp.Back;
-            temp.Back.Next = newElement;
-            temp.Back = newElement;
-            size++;
-        }
-
-        /// <summary>
-        /// Remove element from input position.
-        /// </summary>
-        /// <param name="position"></param>
-        public void RemoveAt(int position)
-        {
-            if (position < 0 || position >= size)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            var temp = head;
-            for (int i = 0; i < position; i++)
-            {
-                temp = head.Next;
-            }
-            if (temp == head)
-            {
-                head = head.Next;
-                size--;
-                return;
-            }
-            if (temp.Next == null)
-            {
-                temp.Back.Next = null;
-                size--;
-                return;
-            }
-            temp.Back.Next = temp.Next;
-            temp.Next.Back = temp.Back;
-            size--;
+            Size++;
         }
 
         /// <summary>
@@ -138,7 +71,7 @@ namespace List
         /// <returns></returns>
         public bool Contain(T value)
         {
-            for (var temp = head; temp != null; temp = temp.Next)
+            for (var temp = Head; temp != null; temp = temp.Next)
             {
                 if (Equals(temp.Value, value))
                 {
@@ -149,22 +82,60 @@ namespace List
         }
 
         /// <summary>
-        /// Return element by index.
+        /// List enumerator.
         /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
-        public T ReturnByIndex(int position)
+        /// <typeparam name="T"></typeparam>
+        public class ListEnumerator : IEnumerator<T>
         {
-            if (position < 0 || position >= size)
+            private T curElement;
+            private int curIndex;
+            private MyList<T> curCollection;
+
+            /// <summary>
+            /// Return current value.
+            /// </summary>
+            public T Current { get { return curElement; } }
+
+            object IEnumerator.Current { get { return Current; } }
+
+            void IDisposable.Dispose() { }
+
+            public ListEnumerator(MyList<T> list)
             {
-                throw new IndexOutOfRangeException();
+                curElement = default(T);
+                curIndex = -1;
+                curCollection = list;
             }
-            var temp = head;
-            for (int i = 0; i < position; i++)
+
+            /// <summary>
+            /// Move enumenator for next element and check end of list.
+            /// </summary>
+            /// <returns></returns>
+            public bool MoveNext()
             {
-                temp = temp.Next;
+                if (++curIndex >= curCollection.Size)
+                {
+                    return false;
+                }
+                else
+                {
+                    var temp = curCollection.Head;
+                    for (int i = 0; i < curIndex; i++)
+                    {
+                        temp = temp.Next;
+                    }
+                    curElement = temp.Value;
+                }
+                return true;
             }
-            return temp.Value;
+
+            /// <summary>
+            /// Sets initial value.
+            /// </summary>
+            public void Reset()
+            {
+                curIndex = -1;
+            }
         }
 
         /// <summary>
@@ -175,7 +146,7 @@ namespace List
         public int FindIndex(T value)
         {
             int count = 0;
-            for (var temp = head; temp != null; temp = temp.Next)
+            for (var temp = Head; temp != null; temp = temp.Next)
             {
                 if (Equals(temp.Value, value))
                 {
@@ -191,32 +162,23 @@ namespace List
         /// </summary>
         public void Clear()
         {
-            head = null;
-            size = 0;
-        }
-
-        /// <summary>
-        /// Return size of list.
-        /// </summary>
-        /// <returns></returns>
-        public int Size()
-        {
-            return size;
+            Head = null;
+            Size = 0;
         }
 
         /// <summary>
         /// Write list(an optional feature).
         /// </summary>
-        /// <summary>
+        /// <returns></returns>
         public string Write()
         {
-            if (this.head == null)
+            if (this.Head == null)
             {
-                throw new EmptyListException();
+                return "";
             }
             else
             {
-                var temp = this.head;
+                var temp = this.Head;
                 string stringOfList = Convert.ToString(temp.Value);
                 temp = temp.Next;
                 while (temp != null)
@@ -229,12 +191,12 @@ namespace List
         }
 
         /// <summary>
-        /// Return IListEnumerator for this list..
+        /// Return ListEnumerator for this list..
         /// </summary>
         /// <returns></returns>
         public IEnumerator<T> GetEnumerator()
         {
-            return new IListEnumerator<T>(this);
+            return new ListEnumerator(this);
         }
 
         /// <summary>

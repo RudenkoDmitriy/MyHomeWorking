@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multiplicity
+namespace Set
 {
-    public class NotContainElementException : Exception
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

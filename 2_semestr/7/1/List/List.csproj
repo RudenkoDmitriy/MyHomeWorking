@@ -42,8 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NotContainElementException.cs" />
-    <Compile Include="EmptyListException.cs" />
-    <Compile Include="IListEnumerator.cs" />
     <Compile Include="List.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

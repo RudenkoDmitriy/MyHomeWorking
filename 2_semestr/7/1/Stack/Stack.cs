@@ -24,12 +24,6 @@ namespace Stack
             }
         }
 
-        public Stack()
-        {
-            head = null;
-            Size = 0;
-        }
-
         /// <summary>
         /// Push element to top.
         /// </summary>
