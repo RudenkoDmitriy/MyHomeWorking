@@ -65,6 +65,73 @@ namespace List
         }
 
         /// <summary>
+        /// Insert element to input position.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
+        public void Insert(int position, T value)
+        {
+            if (position < 0 || position >= Size)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            if (position == 0)
+            {
+                Add(value);
+                return;
+            }
+            if (position == Size)
+            {
+                AddLast(value);
+                return;
+            }
+            var temp = Head;
+            while (position > 0)
+            {
+                temp = temp.Next;
+                position--;
+            }
+            var newElement = new ElementOfList(value);
+            newElement.Next = temp;
+            newElement.Back = temp.Back;
+            temp.Back.Next = newElement;
+            temp.Back = newElement;
+            Size++;
+        }
+
+        /// <summary>
+        /// Remove element from input position.
+        /// </summary>
+        /// <param name="position"></param>
+        public void RemoveAt(int position)
+        {
+            if (position < 0 || position >= Size)
+            {
+                throw new Exception();
+            }
+            var temp = Head;
+            for (int i = 0; i < position; i++)
+            {
+                temp = Head.Next;
+            }
+            if (temp == Head)
+            {
+                Head = Head.Next;
+                Size--;
+                return;
+            }
+            if (temp.Next == null)
+            {
+                temp.Back.Next = null;
+                Size--;
+                return;
+            }
+            temp.Back.Next = temp.Next;
+            temp.Next.Back = temp.Back;
+            Size--;
+        }
+
+        /// <summary>
         /// Check availability of element.
         /// </summary>
         /// <param name="value"></param>
@@ -87,14 +154,14 @@ namespace List
         /// <typeparam name="T"></typeparam>
         public class ListEnumerator : IEnumerator<T>
         {
-            private T curElement;
+            private ElementOfList curElement;
             private int curIndex;
             private MyList<T> curCollection;
 
             /// <summary>
             /// Return current value.
             /// </summary>
-            public T Current { get { return curElement; } }
+            public T Current { get { return curElement.Value; } }
 
             object IEnumerator.Current { get { return Current; } }
 
@@ -102,7 +169,8 @@ namespace List
 
             public ListEnumerator(MyList<T> list)
             {
-                curElement = default(T);
+                curElement = new ElementOfList(default(T));
+                curElement.Next = list.Head;
                 curIndex = -1;
                 curCollection = list;
             }
@@ -119,12 +187,7 @@ namespace List
                 }
                 else
                 {
-                    var temp = curCollection.Head;
-                    for (int i = 0; i < curIndex; i++)
-                    {
-                        temp = temp.Next;
-                    }
-                    curElement = temp.Value;
+                    curElement = curElement.Next;
                 }
                 return true;
             }
@@ -135,6 +198,8 @@ namespace List
             public void Reset()
             {
                 curIndex = -1;
+                curElement = new ElementOfList(default(T));
+                curElement.Next = curCollection.Head;
             }
         }
 

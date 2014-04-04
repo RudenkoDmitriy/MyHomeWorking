@@ -37,6 +37,33 @@
         }
 
         [TestMethod]
+        public void AddLastTest()
+        {
+            list.AddLast(1);
+            list.AddLast(2);
+            Assert.IsTrue(list.FindIndex(1) == 0 && list.FindIndex(2) == 1);
+        }
+
+        [TestMethod]
+        public void InsertTest()
+        {
+            list.Add(0);
+            list.AddLast(2);
+            list.Insert(1, 1);
+            Assert.IsTrue(list.FindIndex(1) == 1);
+        }
+
+        [TestMethod]
+        public void RemoveAtTest()
+        {
+            list.Add(0);
+            list.AddLast(2);
+            list.Insert(1, 1);
+            list.RemoveAt(1);
+            Assert.IsTrue(list.FindIndex(2) == 1 && !list.Contain(1));
+        }
+
+        [TestMethod]
         public void ContainTest()
         {
             list.Add(1);
@@ -83,12 +110,14 @@
             int testResult = 0;
             list.Add(2);
             list.Add(1);
+            list.RemoveAt(1);
             list.Add(4);
+            list.Insert(0, 5);
             foreach (var x in list)
             {
                 testResult += x;
             }
-            Assert.IsTrue(testResult == 7);
+            Assert.IsTrue(testResult == 10);
         }
 
         private MyList<int> list;
