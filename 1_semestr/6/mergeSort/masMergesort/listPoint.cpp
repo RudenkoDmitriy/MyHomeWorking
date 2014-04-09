@@ -5,7 +5,7 @@
 
 struct ElementOfList
 {
-	TypeOfValue value;
+	TypeOfValue valu;
 	ElementOfList *next;
 };
 
