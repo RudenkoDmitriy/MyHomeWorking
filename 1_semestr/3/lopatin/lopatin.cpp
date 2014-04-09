@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool binarySearch(int arr[], int left, int right, int value)
+bool binarySearch(int arr[], int left, int right, int valu)
 {
 	if ((right - left) >= 0) 
 	{
