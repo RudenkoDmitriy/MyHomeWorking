@@ -1,0 +1,5 @@
+C:\Users\Дмитрий\Desktop\HomeWork\TicTacToe\TicTacToe.Web\bin\TicTacToe.Web.dll
+C:\Users\Дмитрий\Desktop\HomeWork\TicTacToe\TicTacToe.Web\bin\TicTacToe.Web.pdb
+C:\Users\Дмитрий\Desktop\HomeWork\TicTacToe\TicTacToe.Web\obj\Debug\TicTacToe.Web.csprojResolveAssemblyReference.cache
+C:\Users\Дмитрий\Desktop\HomeWork\TicTacToe\TicTacToe.Web\obj\Debug\TicTacToe.Web.dll
+C:\Users\Дмитрий\Desktop\HomeWork\TicTacToe\TicTacToe.Web\obj\Debug\TicTacToe.Web.pdb

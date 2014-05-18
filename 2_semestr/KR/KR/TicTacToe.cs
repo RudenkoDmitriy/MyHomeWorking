@@ -12,13 +12,12 @@ namespace KR
 {
     public partial class TicTacToe : Form
     {
-        private XO matrix;
+        private Game game;
 
         public TicTacToe()
         {
             InitializeComponent();
-            matrix = new XO();
-
+            game = new Game(new GamePlace(new User("X"), new Computer("O"), 3));
         }
 
         private void buttonClick(object sender, EventArgs e)
@@ -26,50 +25,131 @@ namespace KR
             Button ourButton = sender as Button;
             if (ourButton.TabIndex < 3)
             {
-                ourButton.Text = matrix.Add(0, ourButton.TabIndex % 3);
-                if (matrix.Result())
+                IPlayer temp = game.MakeStep(1, 0, ourButton.TabIndex % 3);
+                ourButton.Text = "X";
+                if (temp == null)
                 {
-                    MessageBox.Show("Winner is " + matrix.lastDownKey);
+                    MessageBox.Show("Winner is " + temp.Symbol);
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
                 }
-                if (matrix.numberOfEnterKeys == 9)
+                if (game.IsFull())
                 {
                     MessageBox.Show("Null result");
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
+                }
+                temp = game.MakeStep(0, 0, ourButton.TabIndex % 3);
+                button1.Text = game.matrixOfGame[0, 0];
+                button2.Text = game.matrixOfGame[0, 1];
+                button3.Text = game.matrixOfGame[0, 2];
+                button4.Text = game.matrixOfGame[1, 0];
+                button5.Text = game.matrixOfGame[1, 1];
+                button6.Text = game.matrixOfGame[1, 2];
+                button7.Text = game.matrixOfGame[2, 0];
+                button8.Text = game.matrixOfGame[2, 1];
+                button9.Text = game.matrixOfGame[2, 2];
+                if (temp == null)
+                {
+                    MessageBox.Show("Winner is " + temp.Symbol);
+                    clearAllKeys();
+                    game.Clear();
+                    return;
+                }
+                if (game.IsFull())
+                {
+                    MessageBox.Show("Null result");
+                    clearAllKeys();
+                    game.Clear();
+                    return;
                 }
             }
             else if (ourButton.TabIndex < 6)
             {
-                ourButton.Text = matrix.Add(1, ourButton.TabIndex % 3);
-                if (matrix.Result())
+                IPlayer temp = game.MakeStep(1, 1, ourButton.TabIndex % 3);
+                ourButton.Text = "X";
+                if (temp == null)
                 {
-                    MessageBox.Show("Winner is " + matrix.lastDownKey);
+                    MessageBox.Show("Winner is " + "X");
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
                 }
-                if (matrix.numberOfEnterKeys == 9)
+                if (game.IsFull())
                 {
                     MessageBox.Show("Null result");
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
+                }
+                temp = game.MakeStep(0, 0, ourButton.TabIndex % 3);
+                button1.Text = game.matrixOfGame[0, 0];
+                button2.Text = game.matrixOfGame[0, 1];
+                button3.Text = game.matrixOfGame[0, 2];
+                button4.Text = game.matrixOfGame[1, 0];
+                button5.Text = game.matrixOfGame[1, 1];
+                button6.Text = game.matrixOfGame[1, 2];
+                button7.Text = game.matrixOfGame[2, 0];
+                button8.Text = game.matrixOfGame[2, 1];
+                button9.Text = game.matrixOfGame[2, 2];
+                if (temp == null)
+                {
+                    MessageBox.Show("Winner is " + "O");
+                    clearAllKeys();
+                    game.Clear();
+                    return;
+                }
+                if (game.IsFull())
+                {
+                    MessageBox.Show("Null result");
+                    clearAllKeys();
+                    game.Clear();
+                    return;
                 }
             }
             else
             {
-                ourButton.Text = matrix.Add(2, ourButton.TabIndex % 3);
-                if (matrix.Result())
+                IPlayer temp = game.MakeStep(1, 2, ourButton.TabIndex % 3);
+                ourButton.Text = "X";
+                if (temp == null)
                 {
-                    MessageBox.Show("Winner is " + matrix.lastDownKey);
+                    MessageBox.Show("Winner is " + "X");
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
                 }
-                if (matrix.numberOfEnterKeys == 9)
+                if (game.IsFull())
                 {
                     MessageBox.Show("Null result");
                     clearAllKeys();
-                    matrix.Clear();
+                    game.Clear();
+                    return;
+                }
+                temp = game.MakeStep(0, 0, ourButton.TabIndex % 3);
+                button1.Text = game.matrixOfGame[0, 0];
+                button2.Text = game.matrixOfGame[0, 1];
+                button3.Text = game.matrixOfGame[0, 2];
+                button4.Text = game.matrixOfGame[1, 0];
+                button5.Text = game.matrixOfGame[1, 1];
+                button6.Text = game.matrixOfGame[1, 2];
+                button7.Text = game.matrixOfGame[2, 0];
+                button8.Text = game.matrixOfGame[2, 1];
+                button9.Text = game.matrixOfGame[2, 2];
+                if (temp == null)
+                {
+                    MessageBox.Show("Winner is " + "O");
+                    clearAllKeys();
+                    game.Clear();
+                    return;
+                }
+                if (game.IsFull())
+                {
+                    MessageBox.Show("Null result");
+                    clearAllKeys();
+                    game.Clear();
+                    return;
                 }
             }
         }
@@ -84,6 +164,11 @@ namespace KR
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
+        }
+
+        private void tableLayoutPanel1_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

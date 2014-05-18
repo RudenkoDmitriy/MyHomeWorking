@@ -10,7 +10,7 @@ namespace XOTest
         [TestInitialize]
         public void Initialize()
         {
-            matrixOfGame = new XO();
+            matrixOfGame = new GamePlace();
         }
 
         [TestMethod]
@@ -44,6 +44,6 @@ namespace XOTest
             Assert.IsTrue(matrixOfGame.numberOfEnterKeys == 0);
         }
 
-        private XO matrixOfGame;
+        private GamePlace matrixOfGame;
     }
 }

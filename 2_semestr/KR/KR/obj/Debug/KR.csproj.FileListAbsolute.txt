@@ -1,0 +1,9 @@
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\bin\Debug\KR.exe.config
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\bin\Debug\KR.exe
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\bin\Debug\KR.pdb
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.csprojResolveAssemblyReference.cache
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.TicTacToe.resources
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.Properties.Resources.resources
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.csproj.GenerateResource.Cache
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.exe
+C:\Users\Дмитрий\Desktop\Homework\2_semestr\KR\KR\obj\Debug\KR.pdb
