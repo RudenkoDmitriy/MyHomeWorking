@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KR№2", "KR№2\KR№2.csproj", "{B41DF775-6F95-428B-8B93-0BB0E302D29C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingTest", "SortingTest\SortingTest.csproj", "{CCF8F4AF-DC79-427B-9DA8-4D27C4994A69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B41DF775-6F95-428B-8B93-0BB0E302D29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41DF775-6F95-428B-8B93-0BB0E302D29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41DF775-6F95-428B-8B93-0BB0E302D29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41DF775-6F95-428B-8B93-0BB0E302D29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF8F4AF-DC79-427B-9DA8-4D27C4994A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF8F4AF-DC79-427B-9DA8-4D27C4994A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF8F4AF-DC79-427B-9DA8-4D27C4994A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF8F4AF-DC79-427B-9DA8-4D27C4994A69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
