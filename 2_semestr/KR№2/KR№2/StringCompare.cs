@@ -11,6 +11,12 @@ namespace KR_2
     /// </summary>
     public class StringCompare : IComparator<string>
     {
+        /// <summary>
+        /// Compare two strings.
+        /// </summary>
+        /// <param name="firstElement"></param>
+        /// <param name="secondElement"></param>
+        /// <returns></returns>
         public bool CompareTo(string firstElement, string secondElement)
         {
             if (String.Compare(firstElement, secondElement) <= 0)
