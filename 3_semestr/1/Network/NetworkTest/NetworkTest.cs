@@ -27,13 +27,13 @@ namespace NetworkTest
         public void OneTactTest()
         {
             network.OneTact();
-            string trueText = "0 Windows False\n1 MacOS False\n2 Linux True\n3 Linux False\n4 MacOS True\n";
+            string trueText = "0 Windows False\n1 MacOS False\n2 Linux False\n3 Linux False\n4 MacOS True\n";
             Assert.IsTrue(String.Compare(network.GetInformation(), trueText) == 0);
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 3; i++)
             {
                 network.OneTact();
             }
-            string trueText2 = "0 Windows True\n1 MacOS False\n2 Linux True\n3 Linux False\n4 MacOS True\n";
+            string trueText2 = "0 Windows False\n1 MacOS False\n2 Linux True\n3 Linux False\n4 MacOS True\n";
             Assert.IsTrue(String.Compare(network.GetInformation(), trueText2) == 0);
         }
 

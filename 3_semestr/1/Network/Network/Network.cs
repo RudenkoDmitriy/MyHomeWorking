@@ -14,17 +14,19 @@ namespace Network
         private GraphOfNetwork Graph { get; set; }
         private Computer[] ArrayOfComputers { get; set; }
         private Random randomizer { get; set; }
+        private Queue<int> forTravers { get; set; }
 
         /// <summary>
         /// Constructor of class, if entered number for randomizer.
         /// </summary>
         /// <param name="inputData"></param>
-        /// <param name="NumberForRandom"></param>
-        public Network(ReadOut inputData, int NumberForRandom)
+        /// <param name="numberForRandom"></param>
+        public Network(ReadOut inputData, int numberForRandom)
         {
             ArrayOfComputers = inputData.ArrayOfComputer;
             Graph = inputData.Graph;
-            randomizer = new Random(NumberForRandom);
+            randomizer = new Random(numberForRandom);
+            forTravers = Graph.CreateBFSQueue();
         }
 
         /// <summary>
@@ -43,14 +45,20 @@ namespace Network
         /// </summary>
         public void OneTact()
         {
+            int nodeInTop = forTravers.Dequeue();
             for (int i = 0; i < Graph.NumberOfVertex; i++)
             {
-                for (int j = 0; j < Graph.NumberOfVertex; j++)
+                if (Graph.CheckEdge(nodeInTop, i))
                 {
-                    if (Graph.CheckEdge(i, j) && ArrayOfComputers[i].Infected)
+                    if (!ArrayOfComputers[nodeInTop].Infected && ArrayOfComputers[i].Infected)
                     {
-                        ArrayOfComputers[j].CheckInfection(randomizer);
+                        ArrayOfComputers[nodeInTop].CheckInfection(randomizer);
                     }
+                    if (ArrayOfComputers[nodeInTop].Infected && !ArrayOfComputers[i].Infected)
+                    {
+                        ArrayOfComputers[i].CheckInfection(randomizer);
+                    }
+                    forTravers.Enqueue(nodeInTop);
                 }
             }
         }

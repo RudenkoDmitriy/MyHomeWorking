@@ -10,7 +10,7 @@ namespace Network
     {
         static void Main(string[] args)
         {
-         /*   ReadOut input = new ReadOut("..\\..\\inform.txt");
+            ReadOut input = new ReadOut("..\\..\\inform.txt");
             Network network = new Network(input, 38);
             while (true)
             {
@@ -23,7 +23,7 @@ namespace Network
                         network.OneTact();
                         break;
                 }
-            } */
+            } 
         }
     }
 }

@@ -50,5 +50,39 @@ namespace Network
         {
             return Matrix[firstVertex, secondVertex];
         }
+
+        /// <summary>
+        /// Create queue for BST.
+        /// </summary>
+        /// <returns></returns>
+        public Queue<int> CreateBFSQueue()
+        {
+            if (NumberOfVertex == 0)
+            {
+                throw new IncorrectInputDataException();
+            }
+            Queue<int> forSearch = new Queue<int>();
+            Queue<int> result = new Queue<int>();
+            bool[] visited = new bool[NumberOfVertex];
+            forSearch.Enqueue(0);
+            visited[0] = true;
+            while (forSearch.Count != 0)
+            {
+                int numberOfTop = forSearch.Dequeue();
+                result.Enqueue(numberOfTop);
+                for (int i = 0; i < NumberOfVertex; i++)
+                {
+                    if (Matrix[numberOfTop, i])
+                    {
+                        if (!visited[i])
+                        {
+                            forSearch.Enqueue(i);
+                            visited[i] = true;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
