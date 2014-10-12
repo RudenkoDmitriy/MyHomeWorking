@@ -12,7 +12,7 @@ namespace Robots
         private bool[] ArrayOfRobots { get; set; }
         private EqualClassInGraph FirstClass { get; set; }
         private EqualClassInGraph SecondClass { get; set; }
-        private bool[] visited { get; set; }
+        private bool[] Visited { get; set; }
 
         /// <summary>
         /// Constructor of class.
@@ -25,7 +25,7 @@ namespace Robots
             ArrayOfRobots = input.ArrayOfRobots;
             FirstClass = new EqualClassInGraph();
             SecondClass = new EqualClassInGraph();
-            visited = new bool[Graph.NumberOfVertex];
+            Visited = new bool[Graph.NumberOfVertex];
             SeparationGraphOnEqualClass(0, true);
         }
 
@@ -50,10 +50,10 @@ namespace Robots
                     SecondClass.AddRobot();
                 }
             }
-            visited[numberOfStartVertex] = true;
+            Visited[numberOfStartVertex] = true;
             for (int i = 0; i < Graph.NumberOfVertex; i++)
             {
-                if (Graph.CheckEdge(numberOfStartVertex, i) && !visited[i])
+                if (Graph.CheckEdge(numberOfStartVertex, i) && !Visited[i])
                 {
                     SeparationGraphOnEqualClass(i, !isFirstClass);
                 }
