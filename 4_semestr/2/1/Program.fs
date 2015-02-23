@@ -7,7 +7,7 @@ let reverse list =
    recReverse list []
 
 ///2. List of degrees.
-let degrees startDegree = [ for x in startDegree..startDegree + 4 -> 2.0 ** float(x) ]
+let degrees startDegree = List.map (fun a -> 2.0 ** float(a)) [startDegree..startDegree + 4]
 
 ///3. Product of numbers in number.
 let rec productOfNumbers number =
@@ -29,11 +29,11 @@ let rec isPalindrom string =
     elif string.[0] = string.[string.Length - 1] then isPalindrom(string.[1..string.Length - 2])
     else false
     
-//let res = reverse [ 1; 2; 3 ]
-//let res1 = degrees 5
-//let res2 = productOfNumbers 12345
-//let res3 = firstPosition [0;2;2;3;1;5] 1
-//let res4 = isPalindrom "shabahs s"
-//
-//
-//printfn "%A" res3
+let res = reverse [ 1; 2; 3 ]
+let res1 = degrees 5
+let res2 = productOfNumbers 12345
+let res3 = firstPosition [0;2;2;3;1;5] 1
+let res4 = isPalindrom "shabahs s"
+
+
+printfn "%A" res1
