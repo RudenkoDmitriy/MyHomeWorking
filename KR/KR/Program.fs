@@ -20,7 +20,7 @@ let treeMap func tree =
     let rec recTree (func : int -> bool) tree =
         match tree with
         | Tip x -> if func x then [x] else []
-        | Node(x, left, right) -> if func x then [x] @ recTree func left @ recTree func right else []
+        | Node(x, left, right) -> if func x then [x] @ recTree func left @ recTree func right else recTree func left @ recTree func
     recTree func tree
 
 
