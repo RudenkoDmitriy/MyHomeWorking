@@ -37,21 +37,29 @@ let hight (tree:Tree<int>) =
    recHight tree
 
 ///5
+type Operation = 
+    | Subtract
+    | Add
+    | Multiply
+    | Divide
+
 type ArTree =
     | Tip of int
-    | OpNode of string * ArTree * ArTree
-
+    | OpNode of Operation * ArTree * ArTree
 
 let result (tree:ArTree) =
   let rec recResult (tree:ArTree) =
       match tree with
       | Tip x -> x
       | OpNode (op, left, right) -> match op with
-                                  | "+" -> recResult(left) + recResult(right)
-                                  | "-" -> recResult(left) - recResult(right)
-                                  | "*" -> recResult(left) * recResult(right)
-                                  | "/" -> recResult(left) / recResult(right)
+                                  | Add _ -> recResult(left) + recResult(right)
+                                  | Subtract _ -> recResult(left) - recResult(right)
+                                  | Multiply _ -> recResult(left) * recResult(right)
+                                  | Divide _ -> match recResult(right) with
+                                                |0 -> failwith "Divide by ZeRo"
+                                                |_ -> recResult(left) / recResult(right)
   recResult tree
+
 
 //6
 let emptyNumb =
@@ -62,6 +70,5 @@ let emptyNumb =
 //let res1 = max [1; 5; 6; 2]
 //let res2 = diff [1; 5; 6; 2; 2]
 //let res3 = third [1; 5; 6; 2; 2]
-//let res4 = result (OpNode("*", Tip(3), OpNode("/", Tip(8), Tip(4))))
-//
-//printfn "%A" emptyNumb
+//let res4 = result (OpNode(Multiply, Tip(3), OpNode(Divide, Tip(8), Tip(4))))
+//printfn "%A" res4

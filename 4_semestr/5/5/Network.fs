@@ -27,16 +27,13 @@ type Network(randomizer: System.Random, graph : Graph, arrayOfComputer : Compute
     do if graph.NumberOfVertex <> arrayOfComputer.Length then raise(IncorrectInputData)
     let mutable infectedComp = List.filter(fun x -> x <> -1) [for x in 0..graph.NumberOfVertex - 1 -> if arrayOfComputer.[x].Infected then x else -1]
     member v.OneTact =
+        let mutable newInfect = []
         if infectedComp.IsEmpty then ()
-        else let start = infectedComp.Head
-             infectedComp <- infectedComp.Tail @ [start]
-             let mutable test = false 
-             let step =  for stop in 0..graph.NumberOfVertex - 1 do if graph.CheckEdge(start, stop) && not arrayOfComputer.[stop].Infected && not test 
-                                                                    then if arrayOfComputer.[stop].CheckInfected(randomizer) then infectedComp <- infectedComp @ [stop]
-                                                                                                                                  test <- true
-                                                              
-                                                            
-             step
+        else for start in infectedComp do 
+               for stop in 0..graph.NumberOfVertex - 1 do if graph.CheckEdge(start, stop) && not arrayOfComputer.[stop].Infected
+                                                                    then if arrayOfComputer.[stop].CheckInfected(randomizer) then newInfect <- stop :: newInfect
+        infectedComp <- infectedComp @ newInfect
+                                                                                                                                  
     member v.InfoPrint = [for x in arrayOfComputer -> let nameOfWindow = match x.Os with
                                                                          | Windows -> "Windows"
                                                                          | Linux -> "Linux"
